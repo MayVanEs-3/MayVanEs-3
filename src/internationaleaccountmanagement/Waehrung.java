@@ -9,7 +9,7 @@ class Waehrung {
 		this.Name= Name;
 		this.Kürzel = kürzel;
 		this.kurs = kurs;
-		
+		  
 	}
 	
 	public void getKürzel(){
