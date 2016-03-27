@@ -1,5 +1,0 @@
-package internationaleaccountmanagement;
-
-class Betrag {
-
-}
