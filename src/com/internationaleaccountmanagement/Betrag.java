@@ -1,108 +1,149 @@
 package com.internationaleaccountmanagement;
+import java.text.DecimalFormat;
 
 public class Betrag extends Waehrungen {
-
-	long betrag;
-
-	public void getVorzeichen(int b) {
-
-		if (b < 0) {
+long betrag;
+	
+	public void getVorzeichen(long a){
+		
+		if (a<0){
 			System.out.println("-1");
 
 		} else {
-			System.out.println("1");
-		}
+				System.out.println("1");
+			}
 	}
-
-/*	public double getset() {
-		boolean b = false;
-				
-		if (b.) {
-
-		}
-	}*/
-
-	Betrag(long x) {
-		betrag = x;
-	}
-
-	public Betrag newBetrag(long i) {
-		return newBetrag(i);
-	}
-
+	/**
+	 * 
+	 * @param a ein weiterer Betrag kann mit einer anderen Waehrung gegeben sein
+	 * @return gibt den Betrag a in der gleichen waehrung wie mein Betrag zurück
+	 */
 	
-	
-	
-	
-	
-	public double addition(double betrag, double a) {
-		getName gN = new getName();
-		gN.Waehrung();
-		/*if (getName() == a.getName()){
+	public long untersuche (long a){
+		if(getName() == a.getName()&& untersuchebet(betrag)== a.getName()){
 			return a.getName();
 		}else{
 			a.umrechnen();
 		}
-		double ergebnis = betrag + a;
-		long betrag = double ergebnis;
-		return betrag;
-	*/}
+	}
+	/**
+	 * 
+	 * @param Betrag mein Betrag das in einer Waehrung vorliegt
+	 * @return Betrag in der jeweiligen Währung in der es vorliegt
+	 */
+	 public long untersuchebet(long betrag){
+		 if(getName() == betrag.getName()){
+			 return betrag.getName();
+		 }
+	 }
+
+	Betrag(long x){
+		betrag = x;
+	}
 	
+	public Betrag newBetrag(long i){
+		return newBetrag(i);
+	}
 	
-	
-	
-	
-
-	public double subtraktion(double betrag, double a) {
-
-		double ergebnis = (betrag - a);
-		return ergebnis;
-	}
-
-	public int multiplikation2(double betrag, int a) {
-		int ergo = (int) (betrag * a);
-		int ergebnis = (int) ergo;
-		return ergebnis;
-	}
-
-	public double multiplikation(double betrag, double a) {
-		double ergo = (betrag * a);
-		double ergebnis = (double) ergo;
-		return ergebnis;
-
-	}
-
-	public double prozent(double betrag) {
-
-		double ergebnis = (betrag / 100);
-		return ergebnis;
-	}
-
-	public double promille(double betrag) {
-
-		double ergebnis = (betrag / 1000);
-		return ergebnis;
-	}
-
-	public double getVorkomma(double betrag) {
-		//String rz = betrag + "";
-		//return (rz.substring(0, 1)).equalsIgnoreCase("-");
-		int y = (int) betrag;
-		double good = betrag % 1;
-		return good;
-
-	}
-
-	public double getNachkomma(double betrag) {
-		good gg = new good();
-		good.getVorkomma();
+	public long addition(long betrag, double a) {
 		
-		int i = 1;
-		do {
-			i++;
-		} while (i <= 99);
-		System.out.println(i);
-		double ergebnis = (betrag - getVorkomma(good));
+		double ergebnis = betrag + a;
+		long neuBetrag = (long) ergebnis;
+		return neuBetrag;
+	}
+
+	public long subtraktion(long betrag, double a) {
+
+		double ergebnis = betrag - a;
+		long neuBetrag = (long) ergebnis;
+		return neuBetrag;
+	}
+
+	public long multiplikation(long betrag, double a) {
+		
+		double ergebnis = betrag* a;
+		long neuBetrag = (long) ergebnis;
+		return neuBetrag;
+	}
+
+	public long multiplikation2(long betrag,int a) {
+		int ergebnis = (int) (betrag * a);
+		long neuBetrag = (long) ergebnis;
+		return neuBetrag;
+
+	}
+
+	public long prozent(long betrag) {
+		
+		double ergebnis = (betrag/ 100);
+		long neuBetrag = (long) ergebnis;
+		return neuBetrag;
+	}
+
+	public long promille(long betrag) {
+	
+		double ergebnis = (betrag / 1000);
+		long neuBetrag = (long)ergebnis;
+		return neuBetrag;
+	}
+	public long getVorkomma(long betrag){
+		/**
+		 * Mit int y = (int) betrag werden alle Zahlen nach dem Komma abgeschnitten
+		 */
+		
+		int y = (int)betrag;
+		long neuBetrag = (long) y;
+		return neuBetrag;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Waehrung that = (Waehrung) obj;
+		if(getName() == that.getName())
+		return true;
+		Betrag other = (Betrag) obj;
+		if (betrag != other.betrag)
+			return false;
+		return true;
+	}
+	public double getAsDouble(long betrag){
+		
+		double ergebnis = (Math.round(betrag*100)/100.0);
+		/*
+		DecimalFormat D = new DecimalFormat("#0.00");
+		
+		double betrag1 = (long) betrag;
+		double mal = 0.2;
+		System.out.println(D.format(betrag1));
+		System.out.println(D.format(mal));
+		*/
 		return ergebnis;
+	}
+	
+	public String toString(long betrag) {
+		do{
+			double ergebnis = betrag * 0.1;
+			long neuBetrag = (long)ergebnis;
+			
+		}while(betrag < 1.00);
+		return "Betrag [betrag=" + betrag + getKuerzel()+ " ]";
+	}
+	public long getNachkomma(long betrag){
+		
+		do {
+			int gN = (int) (betrag % 1);
+			//int gN = (int) (betrag - getVorkomma());
+			long neuBetrag = (long) gN;
+			return neuBetrag;
+			
+		} while (betrag <= 99);
+		
 	}
 }
+	

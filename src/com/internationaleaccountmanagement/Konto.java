@@ -1,19 +1,26 @@
 package com.internationaleaccountmanagement;
 
-class Konto {
+public class Konto extends Waehrung{
+
+	Konto(java.lang.String name, java.lang.String kuerzel, double kurs) {
+		super(name, kuerzel, kurs);
+		// TODO Auto-generated constructor stub
+	}
+
 
 	private static final String String = null;
 	private static final java.lang.String Peter = null;
 	private static final java.lang.String Lustig = null;
 	private java.lang.String vorname;
 	private java.lang.String nachname;
-	// private int waehrung;
+	double eingebwaehrung = 20;
 	private double kurs;
-
+	//double konto = 10;
+	
 	public static void main(String[] args) {
 		inhaber();
 		Waehrung();
-		buche();
+		//buche();
 	}
 
 	public void main1(String[] args) {
@@ -51,11 +58,12 @@ class Konto {
 	}
 	
 
-	private static double buche() {
-		double a;
-		a = 1;
-		double konto = 20;
-
+	private static double buche(double Dollar, double Euro, double Yen, double Rubel, double CHF) {
+		double konto = 10;
+		double eingebwaehrung = 20; //Das Geld, was eingezahlt wird.
+		
+		
+		
 		if (a <= 0) {
 			double sub = (konto - a);
 			return sub;
@@ -66,9 +74,4 @@ class Konto {
 			}
 	}
 	
-
-
-
-	private long buche(long Waehrung * a) { // zu dollar
-
 	}
