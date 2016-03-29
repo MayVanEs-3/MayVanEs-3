@@ -44,7 +44,7 @@ public class Waehrung {
 	@Override
 	public int hashCode() {
 		/**
-		 * Liefert Wert als int- Wert zur Indentifikation des Objektes
+		 * Liefert Wert als int- Wert zur Identifikation des Objektes
 		 */
 		final int prime = 31;
 		int result = 1;
@@ -94,7 +94,7 @@ public class Waehrung {
 
 	public long umrechnen(long bet, Waehrung w) {
 		/**
-		 * Von einer Währung in Dollar umrechnen
+		 * Von einer Währung in Dollar umrechnen und vom Dollar zur Zielwährung
 		 */
 
 		double i = bet * this.Kurs;

@@ -8,6 +8,11 @@ public class Betrag {
 	 */
 	private long betrag;
 	private Waehrung w1;
+	/**
+	 * @param y ein Wert der in double gespeichert ist
+	 * @param w1 Waehrung 
+	 * Konstruktor der einen double-Wert zurückgibt
+	 */
 
 	Betrag(double y, Waehrung w1) {
 		betrag = (long) (y * 100);

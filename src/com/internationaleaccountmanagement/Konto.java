@@ -24,7 +24,7 @@ class Konto{
 	}
 	
 	/**
-	 * Ausgabe der getter
+	 * Ausgabe der getter Methoden
 	 */
 	String getVorname(){
 		return vorname;
@@ -45,6 +45,8 @@ class Konto{
 	void buche(Betrag zahl) {
 		/**
 		 * Neuen Betrag umrechnen
+		 * w. steht für Waehrung einer Zahl, die mit einer anderen verglichen wird
+		 * Untersucht ob das Objekt und der Betrag vorhanden ist
 		 */
 		if(zahl != null){
 			if(zahl.getBetrag()!= 0){
@@ -61,7 +63,8 @@ class Konto{
 	
 	double saldo(){
 		/**
-		 * Saldo vom Konto abfragen
+		 * Summe aller Buchungen
+		 * listup ist zum hochzählen
 		 */
 		double sum = 0;
 		for(int i = 0; i< listup.size(); i++){
@@ -74,6 +77,7 @@ class Konto{
 	double gebuehren(double prosatz){
 		/**
 		 * Bestimmten Promillesatz vom Konto abziehen
+		 * Gib die Gebühr als Produkt aus meth.Saldo und Promillesatz
 		 */
 		Betrag neu = new Betrag(saldo(),w);
 		double ergebnis = neu.promille(prosatz) ;
@@ -84,10 +88,11 @@ class Konto{
 		/**
 		 * Ausgabe aller Ergebnisse der Variablen
 		 */
+
 		System.out.print("Inhaber"+ getInhaber());
 		System.out.print("Währung"+getWaehrung());
 		System.out.println("------------------------");
-		buche(listup.add(,null));
+		System.out.println(listup);
 		System.out.println("------------------------");
 		System.out.println("Saldo"+ saldo());
 		return null;
