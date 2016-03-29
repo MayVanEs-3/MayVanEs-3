@@ -5,18 +5,27 @@ import org.omg.Messaging.SyncScopeHelper;
 
 class Konto{
 
-	private ArrayList<Betrag> listup = new ArrayList<Betrag>();//Liste inder man objekte vom typ betrag speichern kann
+	/**
+	 * Daklaration und Liste in der man Objekte vom Typ Betrag speichern kann
+	 */
+	private ArrayList<Betrag> listup = new ArrayList<Betrag>();//
 	private String vorname;
 	private String nachname;
 	private Waehrung w;
 
 	Konto(String vorname,String nachname, Waehrung w){
+		/**
+		 * Auf die Klasse Waehrung zugreifen und und zeigt auf lokale Klassenvariable
+		 */
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.w= w;
 		
 	}
 	
+	/**
+	 * Ausgabe der getter
+	 */
 	String getVorname(){
 		return vorname;
 	}
@@ -34,6 +43,9 @@ class Konto{
 	}
 
 	void buche(Betrag zahl) {
+		/**
+		 * Neuen Betrag umrechnen
+		 */
 		if(zahl != null){
 			if(zahl.getBetrag()!= 0){
 				if (!this.w.equals(zahl.getWaehrung())) {
@@ -48,6 +60,9 @@ class Konto{
 	}
 	
 	double saldo(){
+		/**
+		 * Saldo vom Konto abfragen
+		 */
 		double sum = 0;
 		for(int i = 0; i< listup.size(); i++){
 			Betrag b = listup.get(i);
@@ -57,25 +72,27 @@ class Konto{
 		return sum;
 	}
 	double gebuehren(double prosatz){
+		/**
+		 * Bestimmten Promillesatz vom Konto abziehen
+		 */
 		Betrag neu = new Betrag(saldo(),w);
 		double ergebnis = neu.promille(prosatz) ;
 		return ergebnis/100;
 	}
 	
 	public String toString(){
-		
+		/**
+		 * Ausgabe aller Ergebnisse der Variablen
+		 */
 		System.out.print("Inhaber"+ getInhaber());
 		System.out.print("Währung"+getWaehrung());
 		System.out.println("------------------------");
-		buche(listup.add(, nul0l));
+		buche(listup.add(,null));
 		System.out.println("------------------------");
 		System.out.println("Saldo"+ saldo());
 		return null;
 		
 		
-		
-	}
-
 	
-	 
+	} 
 }
