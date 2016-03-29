@@ -13,7 +13,7 @@ public class Waehrungen {
 		}
 		
 		public Waehrung getYen(){
-			return new Waehrung("Yen","Y",0.0091);
+			return new Waehrung("Yen","Y", 0.0091);
 		}
 		
 		public Waehrung getRubel(){
@@ -21,7 +21,7 @@ public class Waehrungen {
 		}
 		
 		public Waehrung getSchweizerFranken(){
-			return new Waehrung("Schweizer Franken","CHF",1.0509);
+			return new Waehrung("Schweizer Franken","CHF", 1.0509);
 		}
 		
 		

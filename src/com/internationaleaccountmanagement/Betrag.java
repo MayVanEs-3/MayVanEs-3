@@ -1,89 +1,108 @@
 package com.internationaleaccountmanagement;
 
-public class Betrag {
+public class Betrag extends Waehrungen {
+
 	long betrag;
-	
-	public void getVorzeichen(double a){
-		
-		if (a<0){
+
+	public void getVorzeichen(int b) {
+
+		if (b < 0) {
 			System.out.println("-1");
 
 		} else {
-				System.out.println("1");
-			}
-	}
-	
-
-	public void addition(long betrag, long a) {
-		
-		
-		double ergebnis = a + b;
-	}
-
-	public void subtraktion(double a, double b) {
-
-		double ergebnis1 = a - b;
-
-	}
-
-	public  void multiplikation() {
-	
-		
-	}
-
-	public void multiplikation2() {
-		int a = 3;
-		int b = 3;
-
-		double ergebnis3 = a * b;
-		System.out.println("Das Ergebnis ist:" + ergebnis3);
-
-	}
-
-	public static void prozent() {
-		double eingabe = 1;
-
-		double ergebnis4 = (eingabe / 100);
-		System.out.println("Der Prozentsatz ist:" + ergebnis4);
-
-	}
-
-	public static void promille() {
-		double eingabe2 = 2;
-
-		double ergebnis5 = (eingabe2 / 1000);
-		System.out.println("Der Promillewert beträgt:" + ergebnis5);
-	}
-/*
-	public static void getVorkomma() {
-			String s = null;
-			while(st.hasMoreTokens()){
-				s = st.nextToken();
-		
-			if(s.equals(".")){
-				// mache nichts, weil da der erste term beginnt
-			}else if(s.equals("/")|| s.equals("-") || s.equals("+")|| s.equals("*")){
-				operator.push(s);
-			}else if (s.equals(")")){
-				// rechne, wenn der term zu ende ist und, rechnung erfolgt mit den letzten beiden operanden und letzten operator
-				Double result = solve(operand.pop(), operator.pop(), operand.pop());
-				operand.push(result.toString());
-			}else{
-				// ist eine Zahl
-				operand.push(s);
-			}
+			System.out.println("1");
 		}
-		return Double.parseDouble(operand.pop());
-		//letzte operand ist nach dem durchlauf das ergebnis im Stack
+	}
+
+/*	public double getset() {
+		boolean b = false;
+				
+		if (b.) {
+
+		}
+	}*/
+
+	Betrag(long x) {
+		betrag = x;
+	}
+
+	public Betrag newBetrag(long i) {
+		return newBetrag(i);
+	}
+
+	
+	
+	
+	
+	
+	public double addition(double betrag, double a) {
+		getName gN = new getName();
+		gN.Waehrung();
+		/*if (getName() == a.getName()){
+			return a.getName();
+		}else{
+			a.umrechnen();
+		}
+		double ergebnis = betrag + a;
+		long betrag = double ergebnis;
+		return betrag;
+	*/}
+	
+	
+	
+	
+	
+
+	public double subtraktion(double betrag, double a) {
+
+		double ergebnis = (betrag - a);
+		return ergebnis;
+	}
+
+	public int multiplikation2(double betrag, int a) {
+		int ergo = (int) (betrag * a);
+		int ergebnis = (int) ergo;
+		return ergebnis;
+	}
+
+	public double multiplikation(double betrag, double a) {
+		double ergo = (betrag * a);
+		double ergebnis = (double) ergo;
+		return ergebnis;
 
 	}
-*/
-	public static void getNachkomma() {
+
+	public double prozent(double betrag) {
+
+		double ergebnis = (betrag / 100);
+		return ergebnis;
+	}
+
+	public double promille(double betrag) {
+
+		double ergebnis = (betrag / 1000);
+		return ergebnis;
+	}
+
+	public double getVorkomma(double betrag) {
+		//String rz = betrag + "";
+		//return (rz.substring(0, 1)).equalsIgnoreCase("-");
+		int y = (int) betrag;
+		double good = betrag % 1;
+		return good;
+
+	}
+
+	public double getNachkomma(double betrag) {
+		good gg = new good();
+		good.getVorkomma();
+		
 		int i = 1;
 		do {
 			i++;
 		} while (i <= 99);
 		System.out.println(i);
-
+		double ergebnis = (betrag - getVorkomma(good));
+		return ergebnis;
 	}
 }
