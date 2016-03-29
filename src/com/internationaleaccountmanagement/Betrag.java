@@ -3,7 +3,7 @@ import java.text.DecimalFormat;
 
 public class Betrag {
 	/**
-	 * Daklaration von Betrag und Wiederverwendung von Waehrung
+	 * Daklaration von Betrag und Wiederverwendung von der Klasse Waehrung
 	 * Neuen Betrag berechnen und ausgeben
 	 */
 	private long betrag;
