@@ -3,18 +3,18 @@ package com.internationaleaccountmanagement;
 public class Waehrung {
 
 	private String name;
-	private String kuerzel;
+	private static String kuerzel;
 	private double kurs;
 
 	Waehrung(String name, String kuerzel, double kurs) {
 		this.name = name;
-		this.kuerzel = kuerzel;
+		this.setKuerzel(kuerzel);
 		this.kurs = kurs;
 
 	}
 
 	String getkuerzel() {
-		return kuerzel;
+		return getKuerzel();
 
 	}
 
@@ -31,7 +31,7 @@ public class Waehrung {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((kuerzel == null) ? 0 : kuerzel.hashCode());
+		result = prime * result + ((getKuerzel() == null) ? 0 : getKuerzel().hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(kurs);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -54,10 +54,10 @@ public class Waehrung {
 		if (getClass() != obj.getClass())
 			return false;
 		Waehrung other = (Waehrung) obj;
-		if (kuerzel == null) {
-			if (other.kuerzel != null)
+		if (getKuerzel() == null) {
+			if (other.getKuerzel() != null)
 				return false;
-		} else if (!kuerzel.equals(other.kuerzel))
+		} else if (!getKuerzel().equals(other.getKuerzel()))
 			return false;
 		if (Double.doubleToLongBits(kurs) != Double.doubleToLongBits(other.kurs))
 			return false;
@@ -81,9 +81,14 @@ public class Waehrung {
 
 	}
 
-	public double getbuche() {
-		// TODO Auto-generated method stub
-		return 0;
+	public String getKuerzel() {
+		return kuerzel;
 	}
+
+	public void setKuerzel(String kuerzel) {
+		Waehrung.kuerzel = kuerzel;
+	}
+
+	
 
 }
