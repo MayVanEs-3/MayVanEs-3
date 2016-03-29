@@ -1,55 +1,81 @@
 package com.internationaleaccountmanagement;
 
-public class Konto extends Waehrung{
+import java.util.ArrayList;
+import org.omg.Messaging.SyncScopeHelper;
 
-	Konto(java.lang.String name, java.lang.String kuerzel, double kurs) {
-		super(name, kuerzel, kurs);
-		}
-	Konto(java.lang.String umrechnen){
-		super(umrechnen, umrechnen, eingebwaehrung);
-	}
-	
+class Konto{
 
+	private ArrayList<Betrag> listup = new ArrayList<Betrag>();//Liste inder man objekte vom typ betrag speichern kann
+	private String vorname;
+	private String nachname;
+	private Waehrung w;
 
-	private static final String Peter = null;
-	private static final String Lustig = null;
-	private static java.lang.String vorname;
-	private static java.lang.String nachname;
-	static double eingebwaehrung = 20;
-	private double konto = 10;
-	
-	
-	public static void inhaber() {
-		vorname = Peter;
-		nachname = Lustig;
-	}
-
-	public String getInhaber() {
-		return vorname + nachname;
-	}
-
-	
-	public static void waehrung() { // zum dollar umrechnen
+	Konto(String vorname,String nachname, Waehrung w){
+		this.vorname = vorname;
+		this.nachname = nachname;
+		this.w= w;
 		
 	}
-
 	
-	public String getWaehrung() {
-		return getWaehrung();
+	String getVorname(){
+		return vorname;
+	}
+	String getNachname(){
+		return nachname;
+	}
+
+	String getInhaber() {
+		return vorname +" "+ nachname;
 	}
 	
+	Waehrung getWaehrung() {
+		return w;
 
-	
-	private static double buche() {
-		
-	
-	
-		if (eingebwaehrung <= 0) {
-			
+	}
 
-		} else {
+	void buche(Betrag zahl) {
+		if(zahl != null){
+			if(zahl.getBetrag()!= 0){
+				if (!this.w.equals(zahl.getWaehrung())) {
+					long t = zahl.getWaehrung().umrechnen(zahl.getBetrag(), w);
+					listup.add(new Betrag(t, w));
 			
+				}else{
+					listup.add(zahl);
+				}
 			}
+		}
 	}
 	
+	double saldo(){
+		double sum = 0;
+		for(int i = 0; i< listup.size(); i++){
+			Betrag b = listup.get(i);
+			sum += b.getAsDouble();
+			
+		}
+		return sum;
 	}
+	double gebuehren(double prosatz){
+		Betrag neu = new Betrag(saldo(),w);
+		double ergebnis = neu.promille(prosatz) ;
+		return ergebnis/100;
+	}
+	
+	public String toString(){
+		
+		System.out.print("Inhaber"+ getInhaber());
+		System.out.print("Währung"+getWaehrung());
+		System.out.println("------------------------");
+		buche(listup.add(, nul0l));
+		System.out.println("------------------------");
+		System.out.println("Saldo"+ saldo());
+		return null;
+		
+		
+		
+	}
+
+	
+	 
+}
