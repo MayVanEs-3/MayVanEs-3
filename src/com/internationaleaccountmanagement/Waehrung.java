@@ -2,6 +2,9 @@ package com.internationaleaccountmanagement;
 
 public class Waehrung {
 
+	/**
+	 * Deklaration der einzelnen Begriffe
+	 */
 	private String name;
 	private static String kuerzel;
 	private double kurs;
@@ -29,6 +32,9 @@ public class Waehrung {
 
 	@Override
 	public int hashCode() {
+		/**
+		 * Objekte verpacken und wieder aufrufen 
+		 */
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((getKuerzel() == null) ? 0 : getKuerzel().hashCode());
@@ -41,12 +47,18 @@ public class Waehrung {
 
 	@Override
 	public String toString() {
+		/**
+		 * Ausgabe von Name, Kurs und Kürzel
+		 */
 		return (this.getname() + " " + this.getkurs() + " " + this.getkuerzel());
 
 	}
 
 	@Override
 	public boolean equals(Object obj) {
+		/**
+		 * Währung erfassen und vergleichen
+		 */
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -69,7 +81,7 @@ public class Waehrung {
 		return true;
 	}
 
-	public long umrechenen(long bet, Waehrung w) {
+	public long umrechnen(long bet, Waehrung w) {
 		/**
 		 * von einer Währung nach DOLLAR!!!
 		 */
@@ -82,6 +94,9 @@ public class Waehrung {
 	}
 
 	public String getKuerzel() {
+		/**
+		 * Kürzel ausgeben
+		 */
 		return kuerzel;
 	}
 

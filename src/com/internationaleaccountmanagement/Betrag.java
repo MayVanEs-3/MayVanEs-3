@@ -64,7 +64,7 @@ public class Betrag {
 	long addition(long a, Waehrung w) {
 
 		if (!this.w1.equals(w)) {
-			long t = w.umrechenen(a, w1);
+			long t = w.umrechnen(a, w1);
 			return getBetrag() + t;
 		}
 		return getBetrag() + a;
@@ -72,7 +72,7 @@ public class Betrag {
 
 	long subtraktion(long a, Waehrung w) {
 		if (!this.w1.equals(w)) {
-			long t = w.umrechenen(a, w1);
+			long t = w.umrechnen(a, w1);
 			return getBetrag() - t;
 		}
 		return getBetrag() - a;
@@ -119,9 +119,8 @@ public class Betrag {
 	@Override
 	public String toString() {
 		DecimalFormat p = new DecimalFormat("#0.00");
-		p.format(getBetrag());
 
-		return getBetrag() + " " + w1.getKuerzel();
+		return p.format(getAsDouble()) + " " + w1.getKuerzel();
 	}
 
 	int getNachkomma() {
@@ -129,5 +128,3 @@ public class Betrag {
 		return gN;
 	}
 }
-	
-		
