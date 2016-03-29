@@ -1,63 +1,74 @@
 package com.internationaleaccountmanagement;
 
 public class Waehrung {
-
-	/**
-	 * Deklaration der einzelnen Begriffe
-	 */
-	private String name;
-	private static String kuerzel;
-	private double kurs;
+		/**
+		 * Deklaration der einzelnen Werte
+		 */
+	private String Name;
+	private String Kuerzel;
+	private double Kurs;
 
 	Waehrung(String name, String kuerzel, double kurs) {
-		this.name = name;
-		this.setKuerzel(kuerzel);
-		this.kurs = kurs;
+		/**
+		 * this. zeigt auf Klassenvariable und wird zur lokalen Variable zugeordnet
+		 */
+		this.Name = name;
+		this.Kuerzel = kuerzel;
+		this.Kurs = kurs;
+
+	}
+		
+	String getKuerzel() {
+		/**
+		 * Gibt Kürzel aus
+		 */
+		return Kuerzel;
 
 	}
 
-	String getkuerzel() {
-		return getKuerzel();
+	double getKurs() {
+		/**
+		 * Gibt Kurs aus
+		 */
+		return Kurs;
 
 	}
 
-	double getkurs() {
-		return kurs;
-
-	}
-
-	String getname() {
-		return name;
+	String getName() {
+		/**
+		 * Gibt Name aus
+		 */
+		return Name;
 	}
 
 	@Override
 	public int hashCode() {
 		/**
-		 * Objekte verpacken und wieder aufrufen 
+		 * Liefert Wert als int- Wert zur Indentifikation des Objektes
 		 */
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((getKuerzel() == null) ? 0 : getKuerzel().hashCode());
+		result = prime * result + ((Kuerzel == null) ? 0 : Kuerzel.hashCode());
 		long temp;
-		temp = Double.doubleToLongBits(kurs);
+		temp = Double.doubleToLongBits(Kurs);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((Name == null) ? 0 : Name.hashCode());
 		return result;
 	}
 
 	@Override
 	public String toString() {
 		/**
-		 * Ausgabe von Name, Kurs und Kürzel
+		 * Gibt den Wert als String codiert zurück
 		 */
-		return (this.getname() + " " + this.getkurs() + " " + this.getkuerzel());
+		return (this.getName() + " " + this.getKuerzel() + " 1$ = " + this.getKurs()) + " " + this.getKuerzel();
 
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		/**
-		 * Währung erfassen und vergleichen
+		 * Vergleichen zweier Objekte
 		 */
 		if (this == obj)
 			return true;
@@ -66,44 +77,30 @@ public class Waehrung {
 		if (getClass() != obj.getClass())
 			return false;
 		Waehrung other = (Waehrung) obj;
-		if (getKuerzel() == null) {
-			if (other.getKuerzel() != null)
+		if (Kuerzel == null) {
+			if (other.Kuerzel != null)
 				return false;
-		} else if (!getKuerzel().equals(other.getKuerzel()))
+		} else if (!Kuerzel.equals(other.Kuerzel))
 			return false;
-		if (Double.doubleToLongBits(kurs) != Double.doubleToLongBits(other.kurs))
+		if (Double.doubleToLongBits(Kurs) != Double.doubleToLongBits(other.Kurs))
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (Name == null) {
+			if (other.Name != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!Name.equals(other.Name))
 			return false;
 		return true;
 	}
 
 	public long umrechnen(long bet, Waehrung w) {
 		/**
-		 * von einer Währung nach DOLLAR!!!
+		 * Von einer Währung in Dollar umrechnen
 		 */
 
-		double i = bet * this.kurs;
-		i = i / w.getkurs();
+		double i = bet * this.Kurs;
+		i = i / w.getKurs();
 		long ergebnis = (long) i;
 		return ergebnis;
 
 	}
-
-	public String getKuerzel() {
-		/**
-		 * Kürzel ausgeben
-		 */
-		return kuerzel;
-	}
-
-	public void setKuerzel(String kuerzel) {
-		Waehrung.kuerzel = kuerzel;
-	}
-
-	
-
 }
