@@ -1,5 +1,4 @@
 package com.YHUVFKOXHVVHOXQJprogramm;
-
-public class Key {
+class Key {
 
 }
