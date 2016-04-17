@@ -1,55 +1,120 @@
 package com.yhuvfkoxhvvhoxqjprogramm;
-//Variante1
-import java.util.Scanner;
 
-public abstract class CrypterSubstitution implements Crypter {
+class CrypterSubstitution {
+	/*
+	 * String x = v.verschluesseln(wort); 
+	 * String y = v.entschlüsseln(x);
+	 */
 
-	public static void main(String[] args) {
+	public class Verschluesselung {
+		// Attribut für das GeheimAlphabet
+		private String geheimAlphabet;
 
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Text eingeben");
-		String text = scanner.nextLine(); 
-		//Text eingeben
-		
-		char [] verschlüsselung = new char [26];
-		public enum klartext{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z};
-		public enum schlüssel{U,F,L,P,W,D,R,A,S,J,M,C,O,N,Q,Y,B,V,T,E,X,H,Z,K,G,I};
-		
-		//ich weis nicht welches von beiden eher stimmt.. sind jetzt 2 Varianten,
-		//die ausgebaut werden müssen ._.
+		/**
+		 * Erstellt eine Verschluesselung mit dem geheimAlphabet
+		 */
+		public Verschluesselung(String g) {
+			if (g.length() == 26) {
+				geheimAlphabet = g; // <- g für geheim
+			} else {
+				geheimAlphabet = "uflpwdrasjmconqybvtexhzkgi";
+			}
+		}
+
+		/**
+		 * Das Wort wird mit dem geheim Alphabet verschlüsselt
+		 * 
+		 * @param verschl
+		 *            der eingegebene Text
+		 * @return zurück zum verschlüsselten Text
+		 */
+		public String verschluesseln(String verschluesseln) {
+			String verschluesselterText = "";
+			for (int i = 0; i < verschluesseln.length(); i++) {
+				verschluesselterText = verschluesselterText
+						+ geheimAlphabet.charAt((int) verschluesseln.charAt(i) - 97);
+			}
+			return verschluesselterText.toUpperCase(); // <- toUpperCase gibt es in Großbuchstaben aus
+		}
+
+		/**
+		 * Das verschlüsselte Wort wird wieder entschlüsselt
+		 * 
+		 * @param entschluesseln
+		 *            das zu entschlüsselte Wort
+		 * @return zurück zum entschlüsselten Text
+		 */
+		// Funktioniert nicht
+		public String entschluesseln(String entschluesseln) {
+			String entschluesselterText = "";
+			String x = this.verschluesseln(entschluesseln);
+			for (int i = 0; i < entschluesseln.length(); i++) {
+				entschluesselterText = entschluesselterText + x.charAt((int) entschluesseln.charAt(i) - 97);
+			}
+			return entschluesselterText.toLowerCase();
+		}
+	}
+
+	/**
+	 * Das hier ist eine Klasse Verschlüsseln die die monoalphabetische
+	 * Substitution anwendet
+	 */
+
+	private char[] geheim;
+
+	public char[] getArray() {
+		return geheim;
+	}
+
+	public void setArray(char[] geheim) {
+		this.geheim = geheim;
+	}
+
+	/**
+	 * @param geheim
+	 *            das übergeben vom Geheimalphabet
+	 * @return
+	 */
+	public void Verschluesselung(String geheimniss) {
+		int zahl = 0;
+		geheim = new char[((int) 'z')];
+		for (char i = 'a'; i < 'z'; i++) {
+			geheim[i] = geheimniss.charAt(zahl);
+			zahl++;
+		}
+	}
+
+	/**
+	 * Klartext in Geheimtext umwandelt
+	 * 
+	 * @param eingabe
+	 *            des Klartext
+	 * @return zurück zum verschlüsselten Text
+	 */
+	public String verschluesseln(String klartext) {
+		klartext = klartext.toLowerCase();
+		for (char i = 'a'; i < 'z'; i++) {
+			klartext = klartext.replace(i, geheim[i]); // ursprüngliche Alphabet durch Geheimalphabet im [i] gespeichert ersetzt
+		}
+		return klartext;
 
 	}
-}
-//Variante2
-//@Override
-//public void reset() {
+
 	/**
-	* Verschlusselt das gegebene Zeichen.
-	*
-	* @param klartextZeichen Zeichen, das verschlusselt werden soll.
-	*
-	* @return verschlusseltes Zeichen.
-	* @throws CrypterException Wird geworfen, wenn Probleme mit der
-	* Verschlusselung auftreten.
-	*/
-	
-//}
+	 * Geheimtext in Klartext umwandelt
+	 * 
+	 * @param eingabe
+	 *            des Geheimtext
+	 * @return zurück zum Klartext
+	 */
+	public String entschluesseln(String geheimtext) {
+		geheimtext = geheimtext.toUpperCase();
+		for (char i = 'a'; i < 'z'; i++) {
+			geheimtext = geheimtext.replace(geheim[i], i); // hier wird das Geheimalphabet durch das "ursprüngliche" Aplhabet ersetzt
 
-/*@Override
-public char verschluesseln(char WIKIPEDIAISTINFORMATIV) {
-	
-	return 0;
-}
+		}
+		return geheimtext;
 
-@Override
-public char entschluesseln(char ZSMSYWPSUSTESNDQVOUESH) {
-	
-	return 0;
-}
-
-private String codieren ("WIKIPEDIAISTINFORMATIV", new String[]
-		{"A","B","C","D","E","F","G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"},
-		 new String[]{"U", "F", "L", "P", "W", "D", "R", "A", "S", "J", "M", "C", "O", "N", "Q", "Y", "B", "V", "T", "E", "X", "H", "Z", "K", "G", "I");
+	}
 
 }
-}*/
