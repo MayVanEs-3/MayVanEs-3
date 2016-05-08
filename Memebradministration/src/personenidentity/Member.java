@@ -15,10 +15,11 @@ public class Member {
 	 * Konstruktor
 	 */
 	public Member(String nachname, String vorname, int mitgliedsJahre, int mitgliederID) {
-		this.nachname = nachname;
-		this.vorname = vorname;
-		this.mitgliedsJahre = mitgliedsJahre;
 		this.mitgliederID = mitgliederID;
+		this.vorname = vorname;
+		this.nachname = nachname;
+		this.mitgliedsJahre = mitgliedsJahre;
+		
 	}
 	
 	/**
@@ -73,9 +74,7 @@ public class Member {
 	 * toString gibt Informationen über ein Mitglied aus
 	 */
 	public String toString() {
-		System.out.println("Die Person: " + nachname+ " "+ vorname + " ist seit "
-				+ mitgliedsJahre +" Jahren "+ "ein Mitglied und besitzt die ID "
-				+ mitgliederID+".");
+		System.out.println(mitgliederID +  vorname + nachname+ + mitgliedsJahre);
 		return null;
 	}
 	
