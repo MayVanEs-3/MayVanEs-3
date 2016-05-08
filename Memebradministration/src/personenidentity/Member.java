@@ -39,7 +39,6 @@ public class Member {
 	 * @return die mitgliederID
 	 */
 	int getMitgliederID(){
-		
 		return mitgliederID;
 	}
 	
