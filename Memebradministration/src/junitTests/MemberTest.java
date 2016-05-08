@@ -11,17 +11,17 @@ public class MemberTest {
 	@Test
 	public void test() {
 		
-		Member test1 = new Member("Kogoro", "Ran", 2, 2);
-		Member test2 = new Member("Edogawa", "Conan", 2, 2);
-		test1.isMembership();
-		test2.isMembership();
+		Member test1 = new Member(2, "Ran", "Mori", 3);
+		Member test2 = new Member(2, "Kogoron", "Mori", 3);
+		test1.hasMembership();
+		test2.hasMembership();
 		test1.equals(test2);
 		test1.toString();
 		test2.toString();
-		test1.checkMemberID(test2);
-		test1.isCheckMitgliedsJahre(test2);
-		test1.checkNachname(test2);
-		test1.checkVorname(test2);
+		test1.hasTheSameMemberID(test2);
+		test1.hasSameMitgliedsJahre(test2);
+		test1.isTheSameNachname(test2);
+		test1.isTheSameVorname(test2);
 		test1.equals(test2);
 		equals(true);
 	

@@ -10,7 +10,7 @@ import java.util.Iterator;
 public class MembershipList extends HashMap implements Map {
 
 	private static final long serialVersionUID = 1L;
-	Member eins = new Member(null, null, 0, 0);
+	Member eins = new Member(0,null, null, 0);
 	public int key = eins.getMitgliederID();
 	public String value = eins.toString();
 	
