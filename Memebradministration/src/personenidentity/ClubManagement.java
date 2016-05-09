@@ -45,19 +45,47 @@ class ClubManagement extends MembershipList {
 		System.out.println(MemberInfo.get(1));
 		System.out.println(MemberInfo.get(2));
 		System.out.println(MemberInfo.get(3));
+		/**
+		 * Member mit der ID 5 ausgeben
+		 */
+		System.out.println(MemberInfo.get(2));
+		/**
+		 * Vorname der ID 5 in
+		 * Günther umändern
+		 */
+		MemberInfo.set(2, "Günther");
+		/**
+		 * Mitglied auf der Konsole ausgeben
+		 */
+		System.out.println("Günther hat die ID 5");
+		/**
+		 * ID 5 löschen
+		 */
+		MemberInfo.remove(zwei);
+		/**
+		 * alle Mitglieder der ersten
+		 * und zweiten Liste ausgeben
+		 */
+		System.out.println(MemberInfo.get(0));
+		System.out.println(MemberInfo.get(1));
+		System.out.println(MemberInfo.get(2));
+		System.out.println(MemberInfo.get(3));
+		System.out.println(MemberInfo.get(1));
+		System.out.println(MemberInfo.get(2));
+		System.out.println(MemberInfo.get(3));
+		System.out.println(MemberInfo.get(2));
+		/**
+		 * beide Listen löschen
+		 */
+		//MemberInfo.remove(eins);
+		//MemberInfo.remove(zwei);
+		//MemberInfo.remove(drei);
+		//MemberInfo.remove(vier);
+		MemberInfo.removeAll(MemberInfo);
+		System.out.println(MemberInfo.size());
 		
-
-		for (String s : MemberInfo) {
-			System.out.println(s.charAt(0));
-			System.out.println(s.charAt(1));
-			System.out.println(s.charAt(2));
-			System.out.println(s.charAt(3));
-		}
-
-		
-		System.out.println("Die Liste hat" + MemberInfo.size() + "Mitglieder.");
-		//System.out.println("Der Member mit der ID 3
-		MemberInfo.set(0, vier);
+	//Leider vergessen für was das nochmal sein sollte	
+//		MemberInfo.set(0, getMitgliederID());
 
 	}
 }

@@ -7,12 +7,8 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Iterator;
 
-public class MembershipList extends HashMap implements Map {
+public class MembershipList extends HashMap implements Map implements iterable {
 
-	private static final long serialVersionUID = 1L;
-	Member eins = new Member(0,null, null, 0);
-	public int key = eins.getMitgliederID();
-	public String value = eins.toString();
 	
 	private String mitgliederID;
 	private String stringListe;
@@ -58,7 +54,8 @@ public class MembershipList extends HashMap implements Map {
 	 */
 	@Override
 	public int size() {
-		return 0;
+		System.out.println("Die länge beträgt...");
+		return stringListe.length();
 	}
 
 	/**
