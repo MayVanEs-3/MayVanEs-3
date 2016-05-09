@@ -13,8 +13,6 @@ public class MemberTest {
 		
 		Member test1 = new Member(2, "Ran", "Mori", 3);
 		Member test2 = new Member(2, "Kogoron", "Mori", 3);
-		test1.hasMembership();
-		test2.hasMembership();
 		test1.equals(test2);
 		test1.toString();
 		test2.toString();

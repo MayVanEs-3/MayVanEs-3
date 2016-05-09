@@ -4,7 +4,7 @@ package personenidentity;
 import java.util.ArrayList;
 import java.util.Collection;
 
-class ClubManagement extends MembershipList {
+class ClubManagement {
 
 	/**
 	 * Member eins, zwei, drei soll Daten der Member speichern 
@@ -12,16 +12,18 @@ class ClubManagement extends MembershipList {
 	 */
 	public void saveData() {
 		ArrayList<String> MemberInfo = new ArrayList<String>();
-
+		
 		Member eins = new Member(2, "Max", "Mustermann", 16);
 		Member zwei = new Member(6, "Anette", "Koch", 15);
 		Member drei = new Member(5, "Bart", "Simpson", 9);
 		Member vier = new Member(3, "Lisa", "Simpson", 5);
-
+		
+		/*
 		MemberInfo.addAll((Collection<? extends String>) eins);
 		MemberInfo.addAll((Collection<? extends String>) zwei);
 		MemberInfo.addAll((Collection<? extends String>) drei);
 		MemberInfo.addAll((Collection<? extends String>) vier);
+		*/
 		/**
 		 * Länge der Vereinsliste ausgeben
 		 */

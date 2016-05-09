@@ -25,7 +25,7 @@ public class Member {
 	 * @return mitgliedsJahre
 	 */
 	public int getMitgliedsJahre(){
-		return mitgliederID;
+		return mitgliedsJahre;
 	}
 	
 	/**
@@ -45,7 +45,7 @@ public class Member {
 	/**
 	 * @return den nachnamen, durch die get methode können wir auf sie zugreifen
 	 */
-	String getNachname() {
+	public String getNachname() {
 		return nachname;
 	}
 	/**
@@ -72,9 +72,9 @@ public class Member {
 	/**
 	 * toString gibt Informationen über ein Mitglied aus
 	 */
+	@Override
 	public String toString() {
-		System.out.println(mitgliederID +" "+ vorname +" "+ nachname+" "+ mitgliedsJahre);
-		return null;
+		return  mitgliederID +" "+ vorname +" "+ nachname+" "+ mitgliedsJahre;
 	}
 	
 	/**
@@ -82,29 +82,9 @@ public class Member {
 	 */
 	public boolean hasTheSameMemberID(Member member2){
 		if(getMitgliederID() != member2.getMitgliederID()){
-			System.out.println("Die IDs sind nicht identisch");
 			return true;
 		}else{
-			System.out.println("Die IDs sind identisch ");
 			return false;
-		}
-	}
-
-
-	/**
-	 * Fragt ab ob es sich bei den Member um einen jungen oder alten Member handelt.
-	 */
-	public void hasMembership(){
-		if (mitgliedsJahre < 5) {
-			System.out.println("Fresh Member!");
-		} else {
-			if(mitgliedsJahre >5 && mitgliedsJahre < 11){
-				System.out.println("Old Member!");
-			}else{
-				if(mitgliedsJahre > 10){
-					System.out.println("Very Old Member!");
-				}
-			}
 		}
 	}
 
@@ -114,11 +94,9 @@ public class Member {
 	
 	public boolean hasSameMitgliedsJahre (Member member2) {
 		if(getMitgliedsJahre() == member2.getMitgliedsJahre()){
-			System.out.println("Memebers: Die mitgliedsJahre sind genau gleich.");
-		return true;
+			return true;
 		}else{
-			System.out.println("Memebers traten nicht im gleichem Jahr ins Verein ein. ");
-		return false;
+			return false;
 		}
 	}
 	
@@ -127,10 +105,8 @@ public class Member {
 	 */
 	public boolean isTheSameNachname(Member member2){
 		if(getNachname() == member2.getNachname()){
-			System.out.println("Members haben den gleichen Nachnamen");
 			return true;
 		}else{
-			System.out.println("Dieser Nachnamen kommt nur einmal vor");
 			return false;
 		}
 	}
@@ -139,11 +115,46 @@ public class Member {
 	 */
 	public boolean isTheSameVorname(Member member2){
 		if(getVorname()== member2.getVorname()){
-			System.out.println("Members haben den gleichen Vornamen");
 			return true;
 		}else{
-			System.out.println("Dieser Vorname kommt nur einmal vor");
 			return false;
 		}
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + mitgliederID;
+		result = prime * result + mitgliedsJahre;
+		result = prime * result + ((nachname == null) ? 0 : nachname.hashCode());
+		result = prime * result + ((vorname == null) ? 0 : vorname.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Member other = (Member) obj;
+		if (mitgliederID != other.mitgliederID)
+			return false;
+		if (mitgliedsJahre != other.mitgliedsJahre)
+			return false;
+		if (nachname == null) {
+			if (other.nachname != null)
+				return false;
+		} else if (!nachname.equals(other.nachname))
+			return false;
+		if (vorname == null) {
+			if (other.vorname != null)
+				return false;
+		} else if (!vorname.equals(other.vorname))
+			return false;
+		return true;
 	}
 }
