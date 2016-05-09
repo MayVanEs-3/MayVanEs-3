@@ -58,7 +58,7 @@ public class Member {
 	/**
 	 * @return den vornamen
 	 */
-	String getVorname() {
+	public String getVorname() {
 		return vorname;
 	}
 	

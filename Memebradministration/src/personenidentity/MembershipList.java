@@ -1,5 +1,6 @@
 package personenidentity;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -7,89 +8,66 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Iterator;
 
-public class MembershipList extends HashMap implements Map,Iterable{
+@SuppressWarnings("serial")
+public class MembershipList extends HashMap<Integer, Member> implements Map<Integer, Member> {
 
-	public Iterator<Member> Iterator(){
-		return values().iterator();
-	}
+ private static final String KEY_ID_DIFFERENT_STRING = "key und ID sind ungleich";
+ private static final String KEY_ALREADY_USED_STRING = "ID ist schon vorhanden";
 
-	/**
-	 * gibt die Anzahl der Elemente in der Liste aus
-	 */
-	@Override
-	public int size() {
-		System.out.println("Die länge beträgt...");
-		return values().size();
-	}
+ public Iterator<Member> Iterator() {
+  return values().iterator();
+ }
 
-	/**
-	 * gibt true zurück wenn key/value nicht vorhanden
-	 * 
-	 * @return
-	 */
-	@Override
-	public boolean isEmpty() {
-		if (size() == 0){
-			return true;
-		}else{
-			return false;
-		}
-	}
+ /**
+  * befüllt die Liste mit value
+  */
+ public Member put(Member value) {
+  return put(value.getMitgliederID(), value);
+ }
 
-	/**
-	 * true wenn Map Zuordnung für den spezifischen Schlüssel enthält
-	 */
-	@Override
-	public boolean containsKey(Object key) {
-		if (!values().contains((CharSequence) key)) {
-			return false;
-		} else
-			return true;
-	}
+ /**
+  * befüllt die Liste mit key/value
+  */
+ @Override
+ public Member put(Integer key, Member value) {
+  if (key != value.getMitgliederID()) {
+   throw new InvalidParameterException(KEY_ID_DIFFERENT_STRING);
+  }
+  if (this.containsKey(key)) {
+   throw new InvalidParameterException(KEY_ALREADY_USED_STRING);
+  }
+  return super.put(key, value);
+ }
+ 
+ public void setVorname(int mitgliederID, String newVorname){
+  Member tmp = this.get(mitgliederID);
+  this.remove(mitgliederID);
+  tmp.setVorname(newVorname);
+  this.put(tmp);
+ }
 
-	/**
-	 * gibt true aus wenn key mindestens auf ein value zugreifen kann
-	 */
-	public boolean containsValue(Member value) {
-		if (!values().contains((CharSequence) value)) {
-			return false;
-		} else
-			return true;
+ /**
+  * entfernt Objekt von der Liste
+  */
+ @Override
+ public Member remove(Object key) {
+  return super.remove(key);
+ }
 
-	}
+ @Override
+ public String toString() {
+  String title = "------------------------------------------------------\n" + "ID" + "\t" + "Vorname" + "\t\t"
+    + "Nachname" + "\t" + "Mitgliedsjahre" + "\n------------------------------------------------------\n";
+  String enter = "\n";
+  String tmp = "";
 
-	/**
-	 * gibt Objekt zurück
-	 */
-	@Override
-	public Object get(Object key) {
-		return key;
-	}
+  for (int i = 0, j = 0; j < this.size(); i++) {
+   if (this.get(i) != null) {
+    j++;
+    tmp += this.get(i) + enter;
+   }
+  }
 
-	/**
-	 * befüllt die Liste mit key/value
-	 */
-	public Object put(Object key, Member value) {
-		return put(key, value);
-	}
-
-	/**
-	 * entfernt Objekt von der Liste
-	 */
-	@Override
-	public Object remove(Object key) {
-		{
-			throw new UnsupportedOperationException();
-		}
-	}
-
-	public String toString() {
-		return String.format(null, key, value);
-	}
-
-	@Override
-	public java.util.Iterator iterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  return title + tmp;
+ }
 }
