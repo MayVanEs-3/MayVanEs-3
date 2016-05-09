@@ -7,46 +7,10 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Iterator;
 
-public class MembershipList extends HashMap implements Map implements iterable {
+public class MembershipList extends HashMap implements Map,Iterable{
 
-	
-	private String mitgliederID;
-	private String stringListe;
-
-	public Iterator<String> iterator() {
-		return new Iterator<String>() {
-			private int pos = -1;
-			private Member stringListe;
-
-			/**
-			 * liefert true solange Iterator nicht Ende der Collection erreich
-			 * hat
-			 */
-			public boolean hasNext() {
-				return (this.pos + 1 < this.stringListe.mitgliedsJahre);
-			}
-
-			/**
-			 * ermittelt nächstes Element
-			 */
-			public String next() throws NoSuchElementException {
-
-				if (!hasNext()) {
-					throw new NoSuchElementException("No more elements");
-				}
-				return null;
-			}
-
-			/**
-			 * entfernt aktuelles Element aus Iterator - hier nicht möglich
-			 * gemacht
-			 */
-			public void remove() throws UnsupportedOperationException {
-				{
-					throw new UnsupportedOperationException("Operation is not supported");
-				}
-			}
-		};
+	public Iterator<Member> Iterator(){
+		return values().iterator();
 	}
 
 	/**
@@ -55,7 +19,7 @@ public class MembershipList extends HashMap implements Map implements iterable {
 	@Override
 	public int size() {
 		System.out.println("Die länge beträgt...");
-		return stringListe.length();
+		return values().size();
 	}
 
 	/**
@@ -77,7 +41,7 @@ public class MembershipList extends HashMap implements Map implements iterable {
 	 */
 	@Override
 	public boolean containsKey(Object key) {
-		if (!stringListe.contains((CharSequence) key)) {
+		if (!values().contains((CharSequence) key)) {
 			return false;
 		} else
 			return true;
@@ -87,7 +51,7 @@ public class MembershipList extends HashMap implements Map implements iterable {
 	 * gibt true aus wenn key mindestens auf ein value zugreifen kann
 	 */
 	public boolean containsValue(Member value) {
-		if (!stringListe.contains((CharSequence) value)) {
+		if (!values().contains((CharSequence) value)) {
 			return false;
 		} else
 			return true;
@@ -99,7 +63,6 @@ public class MembershipList extends HashMap implements Map implements iterable {
 	 */
 	@Override
 	public Object get(Object key) {
-		// TODO Auto-generated method stub
 		return key;
 	}
 
@@ -107,8 +70,7 @@ public class MembershipList extends HashMap implements Map implements iterable {
 	 * befüllt die Liste mit key/value
 	 */
 	public Object put(Object key, Member value) {
-		// TODO Auto-generated method stub
-		return null;
+		return put(key, value);
 	}
 
 	/**
@@ -123,5 +85,11 @@ public class MembershipList extends HashMap implements Map implements iterable {
 
 	public String toString() {
 		return String.format(null, key, value);
+	}
+
+	@Override
+	public java.util.Iterator iterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
