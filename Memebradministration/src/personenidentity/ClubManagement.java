@@ -1,91 +1,48 @@
 package personenidentity;
 
-//System.out.println();
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Scanner;
 
-class ClubManagement extends MembershipList {
+class ClubManagement {
 
-	/**
-	 * Member eins, zwei, drei soll Daten der Member speichern 
-	 * Über addAll werden die Daten wieder ausgegeben
-	 */
-	public void saveData() {
-		ArrayList<String> MemberInfo = new ArrayList<String>();
+	public static void main(String[] args) {
 
-		Member eins = new Member(2, "Max", "Mustermann", 16);
-		Member zwei = new Member(6, "Anette", "Koch", 15);
-		Member drei = new Member(5, "Bart", "Simpson", 9);
-		Member vier = new Member(3, "Lisa", "Simpson", 5);
+		MembershipList list = new MembershipList(); // Inititalisierung der
+													// Klasse MembershipList
 
-		MemberInfo.addAll((Collection<? extends String>) eins);
-		MemberInfo.addAll((Collection<? extends String>) zwei);
-		MemberInfo.addAll((Collection<? extends String>) drei);
-		MemberInfo.addAll((Collection<? extends String>) vier);
+		Member list1 = new Member(0, null, null, 0);
+
+		Scanner sc = new Scanner(System.in);
+
+	
+
+		Member mem1 = new Member(2, "Heinz", "Mustermann", 16);
+		Member mem2 = new Member(6, "Anette", "Koch", 15);
+		Member mem3 = new Member(5, "Bart", "Simpson", 9);
+		Member mem4 = new Member(3, "Lisa", "Simpson", 5);
+
+		list.put(mem1);
+		list.put(mem2);
+		list.put(mem3);
+		list.put(mem4);
+
 		/**
-		 * Länge der Vereinsliste ausgeben
+		 * Gibt Länge der Liste aus
 		 */
-		System.out.println("Die Liste hat" + MemberInfo.size() + "Mitglieder.");
+		list.size();
+		System.out.println("Die Länge beträgt: " + list.size());
+
 		/**
-		 * Mitglieder ausgeben
+		 * Entfernt Mitglied und gibt neue Längenliste aus
 		 */
-		System.out.println(MemberInfo.get(0));
-		System.out.println(MemberInfo.get(1));
-		System.out.println(MemberInfo.get(2));
-		System.out.println(MemberInfo.get(3));
-		/**
-		 * löscht den Nutzer mit der ID 2 (Member eins)
-		 */
-		MemberInfo.remove(eins);
-		/**
-		 * neue Vereinsliste erstellen
-		 * mit for-Schleife... wenn MemberInfo = -1,
-		 * dann neue Liste ausgeben...nur wie?
-		 */
-		System.out.println(MemberInfo.get(1));
-		System.out.println(MemberInfo.get(2));
-		System.out.println(MemberInfo.get(3));
-		/**
-		 * Member mit der ID 5 ausgeben
-		 */
-		System.out.println(MemberInfo.get(2));
-		/**
-		 * Vorname der ID 5 in
-		 * Günther umändern
-		 */
-		MemberInfo.set(2, "Günther");
-		/**
-		 * Mitglied auf der Konsole ausgeben
-		 */
-		System.out.println("Günther hat die ID 5");
-		/**
-		 * ID 5 löschen
-		 */
-		MemberInfo.remove(zwei);
-		/**
-		 * alle Mitglieder der ersten
-		 * und zweiten Liste ausgeben
-		 */
-		System.out.println(MemberInfo.get(0));
-		System.out.println(MemberInfo.get(1));
-		System.out.println(MemberInfo.get(2));
-		System.out.println(MemberInfo.get(3));
-		System.out.println(MemberInfo.get(1));
-		System.out.println(MemberInfo.get(2));
-		System.out.println(MemberInfo.get(3));
-		System.out.println(MemberInfo.get(2));
-		/**
-		 * beide Listen löschen
-		 */
-		//MemberInfo.remove(eins);
-		//MemberInfo.remove(zwei);
-		//MemberInfo.remove(drei);
-		//MemberInfo.remove(vier);
-		MemberInfo.removeAll(MemberInfo);
-		System.out.println(MemberInfo.size());
+		// list.remove(2);
+		System.out.println("Die Länge der neuen Liste beträgt :" + list.remove(2));
+
+		// list.remove
+		list.putAll(list);
+		System.out.println("Die neue Liste beträgt:" + list.putAll(list));
 		
-	//Leider vergessen für was das nochmal sein sollte	
-//		MemberInfo.set(0, getMitgliederID());
+		// System.out.println("Die neue Liste beträgt:" + list.toString());
 
+		sdbkhwb
 	}
 }
