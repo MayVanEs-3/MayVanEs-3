@@ -1,10 +1,12 @@
 package personenidentity;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Member {
-	List<String> list = new ArrayList<>(); 
+	private static List<Integer> list = new ArrayList<>(); 
+	private static final String MITGLIEDERID_IS_ALREADY_USED= "ID wird schon von einem Member benutzt";
 	
 	/**
 	 * Variablen deklariert
@@ -19,10 +21,15 @@ public class Member {
 	 * Konstruktor
 	 */
 	public Member(int mitgliederID,String vorname,String nachname, int mitgliedsJahre ) {
+		if(list.contains(mitgliederID)){
+			 throw new InvalidParameterException(MITGLIEDERID_IS_ALREADY_USED);
+		}
+		list.add(mitgliederID);
 		this.mitgliederID = mitgliederID;
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.mitgliedsJahre = mitgliedsJahre;
+		
 	}
 	
 	/**
@@ -80,17 +87,6 @@ public class Member {
 	public String toString() {
 		return  mitgliederID +" "+ vorname +" "+ nachname+" "+ mitgliedsJahre;
 	}
-	
-	/**
-	 * Abfrage ob die ID des einen Members identisch ist wie vom zweiten Member
-	 */
-	public boolean hasTheSameMemberID(Member member2){
-		if(getMitgliederID() != member2.getMitgliederID()){
-			return true;
-		}else{
-			return false;
-		}
-	}
 
 	/**
 	 * die mitgliedsJahre von zwei Mitgliedern vergleichen
@@ -127,7 +123,7 @@ public class Member {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
+		final int prime = 31; //outprime(ungerade Primzahl)
 		int result = 1;
 		result = prime * result + mitgliederID;
 		result = prime * result + mitgliedsJahre;

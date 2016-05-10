@@ -40,17 +40,11 @@ public class MembershipList extends HashMap<Integer, Member> implements Map<Inte
 	}
 
 	public void setVorname(int mitgliederID, String newVorname) {
-		Member tmp = this.get(mitgliederID);
-		this.remove(mitgliederID);
-		tmp.setVorname(newVorname);
-		this.put(tmp);
+		this.get(mitgliederID).setVorname(newVorname);
 	}
-
+  
 	public void setNachname(int mitgliederID, String newNachname) {
-		Member tmp = this.get(mitgliederID);
-		this.remove(mitgliederID);
-		tmp.setNachname(newNachname);
-		this.put(tmp);
+		this.get(mitgliederID).setNachname(newNachname);
 	}
 
 	public void setMitgliederJahre(int mitgliederID, int newYear) {
