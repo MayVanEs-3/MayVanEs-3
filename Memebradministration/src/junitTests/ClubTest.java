@@ -17,7 +17,6 @@ public class ClubTest {
 
 		String test = "Test";
 		list.put(new Member(1, "Muster", "Frau", 7));
-		list.get(1).setVorname("Ugur");
 		list.setVorname(1, test);
 		String actual = list.get(1).getVorname();
 		Assert.assertEquals(expected, test == actual);
