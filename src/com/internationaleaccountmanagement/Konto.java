@@ -7,7 +7,7 @@ class Konto{
 
 	/**
 	 * Daklaration und Liste in der man Objekte vom Typ Betrag speichern kann
-	 */
+	 */ 
 	private ArrayList<Betrag> listup = new ArrayList<Betrag>();//
 	private String vorname;
 	private String nachname;
