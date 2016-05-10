@@ -1,7 +1,11 @@
 package personenidentity;
 
-public class Member {
+import java.util.ArrayList;
+import java.util.List;
 
+public class Member {
+	List<String> list = new ArrayList<>(); 
+	
 	/**
 	 * Variablen deklariert
 	 */
