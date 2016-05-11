@@ -13,7 +13,9 @@ public class MembershipList extends HashMap<Integer, Member> implements Map<Inte
 
 	private static final String KEY_ID_DIFFERENT_STRING = "key und ID sind ungleich";
 	private static final String KEY_ALREADY_USED_STRING = "ID ist schon vorhanden";
-
+/**
+ * je nach methode durchläuft Sie die Objekte in einer Collection
+ */
 	public Iterator<Member> Iterator() {
 		return values().iterator();
 	}
@@ -38,15 +40,21 @@ public class MembershipList extends HashMap<Integer, Member> implements Map<Inte
 		}
 		return super.put(key, value);
 	}
-
+	/**
+	 * Ändert den Vornamen
+	 */
 	public void setVorname(int mitgliederID, String newVorname) {
 		this.get(mitgliederID).setVorname(newVorname);
 	}
-  
+  /**
+   * Ändert den Nachnamen
+   */
 	public void setNachname(int mitgliederID, String newNachname) {
 		this.get(mitgliederID).setNachname(newNachname);
 	}
-
+	/**
+	 * Ändert die mitgliederJahre
+	 */
 	public void setMitgliederJahre(int mitgliederID, int newYear) {
 		Member tmp = this.get(mitgliederID);
 		this.remove(mitgliederID);

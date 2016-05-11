@@ -5,7 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Member {
+	/**
+	 * List erstellen
+	 */
 	private static List<Integer> list = new ArrayList<>(); 
+	/**
+	 * variable für die throw Exception
+	 */
 	private static final String MITGLIEDERID_IS_ALREADY_USED= "ID wird schon von einem Member benutzt";
 	
 	/**
@@ -33,14 +39,14 @@ public class Member {
 	}
 	
 	/**
-	 * @return mitgliedsJahre
+	 * @return MitgliedsJahre
 	 */
 	public int getMitgliedsJahre(){
 		return mitgliedsJahre;
 	}
 	
 	/**
-	 * @param newMitgliedsJahre bekommt den wert übergeben und speichert diese in mitgliedsJahre ab
+	 * @param newMitgliedsJahre bekommt den wert übergeben und speichert diesen in mitgliedsJahre ab
 	 */
 	public void setMitgliedsJahre(int newMitgliedsJahre){
 		mitgliedsJahre = newMitgliedsJahre;
@@ -60,7 +66,7 @@ public class Member {
 		return nachname;
 	}
 	/**
-	 * @param newNachname bekommt eine variable übergeben und diese wird in nachname gespeichert 
+	 * @param newNachname bekommt einen Namen übergeben und diese wird in nachname gespeichert 
 	 */
 	public void setNachname(String newNachname){
 		nachname = newNachname;
@@ -74,7 +80,7 @@ public class Member {
 	}
 	
 	/**
-	 * @param newVorname bekommt eine Variable übergeben und diese wird in vorname gespeichert
+	 * @param newVorname bekommt eine Name übergeben und diese wird in vorname gespeichert
 	 */
 	public void setVorname(String newVorname){
 		vorname = newVorname;
