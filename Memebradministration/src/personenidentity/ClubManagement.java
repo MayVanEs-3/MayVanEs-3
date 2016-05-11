@@ -46,7 +46,7 @@ class ClubManagement {
 		 list.putAll(list2);
 		 System.out.println("Die neue Liste beträgt:" + list2.toString());
 
-		
+	kztdzktfk	
 
 	}
 }
